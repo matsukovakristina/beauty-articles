@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контент без выгорания — система раз и навсегда</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Golos+Text:wght@400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Golos Text',sans-serif;background:#0D0D0D;color:#F0F0F0;line-height:1.75;padding-bottom:80px}
+
+.hero{background:#0D0D0D;padding:60px 24px 52px;border-bottom:1px solid #1A1A1A;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-120px;right:-120px;width:400px;height:400px;background:radial-gradient(circle,#FF3E7F14,transparent 65%)}
+.wrap{max-width:660px;margin:0 auto;padding:0 20px}
+.hero-label{font-family:'Unbounded',sans-serif;font-size:10px;letter-spacing:3px;color:#FF3E7F;text-transform:uppercase;margin-bottom:28px}
+h1{font-family:'Unbounded',sans-serif;font-size:clamp(28px,6vw,50px);font-weight:900;line-height:1.05;margin-bottom:24px;color:#FFF}
+h1 span{color:#FF3E7F}
+.hero-sub{font-size:16px;color:#555;max-width:520px;line-height:1.7}
+
+.block{max-width:660px;margin:0 auto;padding:0 20px}
+
+.pain{border-left:3px solid #FF3E7F;padding:28px 32px;margin:52px 0 0;background:#111;border-radius:0 14px 14px 0}
+.pain p{font-size:16px;color:#BBB;margin-bottom:16px;line-height:1.8}
+.pain p:last-child{margin-bottom:0}
+.pain strong{color:#FFF}
+.pain .accent{color:#FF3E7F}
+
+.sec-title{font-family:'Unbounded',sans-serif;font-size:11px;letter-spacing:3px;color:#FF3E7F;text-transform:uppercase;margin:56px 0 24px}
+
+.main-block{background:#111;border:1px solid #1E1E1E;border-radius:20px;padding:36px;margin-bottom:20px}
+.block-num{font-family:'Unbounded',sans-serif;font-size:10px;letter-spacing:2px;color:#333;margin-bottom:18px}
+.main-block h2{font-family:'Unbounded',sans-serif;font-size:21px;font-weight:700;color:#FFF;margin-bottom:16px;line-height:1.25}
+.main-block p{font-size:15px;color:#888;margin-bottom:16px;line-height:1.8}
+.main-block p:last-child{margin-bottom:0}
+.main-block strong{color:#CCC}
+
+.insight{background:#0D0D0D;border-radius:12px;padding:20px 24px;margin:16px 0}
+.insight-label{font-family:'Unbounded',sans-serif;font-size:9px;letter-spacing:2px;color:#FF3E7F;margin-bottom:10px}
+.insight p{font-size:15px;color:#AAA;line-height:1.8;margin-bottom:10px}
+.insight p:last-child{margin-bottom:0}
+.insight strong{color:#FFF}
+
+.tip{background:#FF3E7F0D;border-left:3px solid #FF3E7F;padding:14px 18px;border-radius:0 10px 10px 0;font-size:14px;color:#CCC;margin:16px 0}
+.tip strong{color:#FF3E7F}
+
+.two-types{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+@media(max-width:500px){.two-types{grid-template-columns:1fr}}
+.type-card{background:#0D0D0D;border-radius:14px;padding:22px}
+.type-card.planned{border-top:3px solid #FF3E7F}
+.type-card.situative{border-top:3px solid #333}
+.type-label{font-family:'Unbounded',sans-serif;font-size:9px;letter-spacing:2px;margin-bottom:12px}
+.type-label.p{color:#FF3E7F}
+.type-label.s{color:#444}
+.type-card h4{font-size:15px;font-weight:700;color:#EEE;margin-bottom:10px;line-height:1.3}
+.type-card p{font-size:13px;color:#666;line-height:1.7;margin-bottom:8px}
+.type-card ul{list-style:none;margin-top:8px}
+.type-card ul li{font-size:13px;color:#555;line-height:1.7;padding:5px 0;border-bottom:1px solid #1A1A1A;display:flex;gap:8px}
+.type-card ul li:last-child{border-bottom:none}
+.type-card ul li::before{content:'—';color:#FF3E7F33;flex-shrink:0}
+
+.steps{display:flex;flex-direction:column;gap:0}
+.step-item{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid #1A1A1A;align-items:flex-start}
+.step-item:last-child{border-bottom:none}
+.step-circle{width:36px;height:36px;border-radius:50%;background:#FF3E7F;color:#FFF;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-body h4{font-size:15px;font-weight:600;color:#EEE;margin-bottom:8px;line-height:1.4}
+.step-body p{font-size:14px;color:#666;line-height:1.75;margin:0}
+.step-body strong{color:#CCC}
+
+.format-grid{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.format-item{background:#0D0D0D;border-radius:12px;padding:18px 22px;display:flex;gap:16px;align-items:flex-start}
+.format-n{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:#FF3E7F;width:24px;flex-shrink:0;padding-top:2px}
+.format-body{flex:1}
+.format-tag{display:inline-block;background:#FF3E7F1A;color:#FF3E7F88;font-family:'Unbounded',sans-serif;font-size:9px;letter-spacing:1px;padding:3px 8px;border-radius:4px;margin-bottom:8px}
+.format-body h4{font-size:15px;font-weight:600;color:#EEE;margin-bottom:6px;line-height:1.4}
+.format-body p{font-size:14px;color:#666;line-height:1.7;margin:0}
+
+.ai-block{background:#111;border:1px solid #FF3E7F22;border-radius:20px;padding:36px;margin-bottom:20px;position:relative;overflow:hidden}
+.ai-block::before{content:'AI';position:absolute;right:20px;bottom:-20px;font-family:'Unbounded',sans-serif;font-size:100px;font-weight:900;color:#FF3E7F06;line-height:1}
+.ai-block h2{font-family:'Unbounded',sans-serif;font-size:21px;font-weight:700;color:#FFF;margin-bottom:16px;line-height:1.25}
+.ai-block p{font-size:15px;color:#888;margin-bottom:16px;line-height:1.8}
+.ai-block strong{color:#CCC}
+.ai-example{background:#0D0D0D;border-radius:12px;padding:20px 24px;margin:14px 0}
+.ai-label{font-family:'Unbounded',sans-serif;font-size:9px;letter-spacing:2px;color:#FF3E7F;margin-bottom:12px}
+.ai-prompt{font-size:14px;color:#AAA;line-height:1.75;font-style:italic;border-left:2px solid #FF3E7F44;padding-left:14px;margin-bottom:12px}
+.ai-result{font-size:13px;color:#555;line-height:1.7}
+.ai-result::before{content:'→ Получаешь: ';color:#FF3E7F;font-style:normal;font-weight:600}
+
+.cta{background:#111;border:1px solid #FF3E7F1A;border-radius:20px;padding:48px 40px;margin-top:48px;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;bottom:-100px;right:-100px;width:350px;height:350px;background:radial-gradient(circle,#FF3E7F0D,transparent 65%)}
+.cta-label{font-family:'Unbounded',sans-serif;font-size:10px;letter-spacing:3px;color:#FF3E7F;margin-bottom:20px;position:relative}
+.cta h3{font-family:'Unbounded',sans-serif;font-size:22px;font-weight:900;color:#FFF;line-height:1.2;margin-bottom:16px;position:relative}
+.cta h3 span{color:#FF3E7F}
+.cta p{font-size:15px;color:#555;line-height:1.8;margin-bottom:20px;position:relative}
+.cta-list{list-style:none;margin-bottom:28px;position:relative}
+.cta-list li{font-size:15px;color:#777;line-height:1.8;padding:10px 0;border-bottom:1px solid #1A1A1A;display:flex;gap:12px;align-items:flex-start}
+.cta-list li:last-child{border-bottom:none}
+.dot{width:6px;height:6px;background:#FF3E7F;border-radius:50%;flex-shrink:0;margin-top:9px}
+.cta-list strong{color:#EEE}
+.btn{display:inline-block;background:#FF3E7F;color:#FFF;font-family:'Unbounded',sans-serif;font-size:12px;font-weight:700;padding:18px 38px;border-radius:100px;text-decoration:none;letter-spacing:1px;position:relative}
+
+.footer{text-align:center;margin-top:44px;font-size:13px;color:#2A2A2A}
+.footer strong{color:#444}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-label">Кристина · Маркетинг для бьюти</div>
+    <h1>Контент без<br>выгорания —<br><span>система раз и навсегда</span></h1>
+    <p class="hero-sub">Как один раз выстроить систему — и больше никогда не думать что публиковать</p>
+  </div>
+</div>
+
+<div class="block">
+
+  <div class="pain">
+    <p>Ты садишься снимать. Открываешь телефон. Смотришь в него. Проходит полчаса — ничего не придумала. Снимаешь что-то на отвали. Или вообще закрываешь и говоришь себе «завтра».</p>
+    <p>А завтра — то же самое. И послезавтра. И в итоге контент либо выходит через силу и без удовольствия, либо <span class="accent">не выходит вообще.</span> Запись падает. Появляется ощущение что ты что-то делаешь не так — но непонятно что.</p>
+    <p>Это не потому что ты ленивая или у тебя нет таланта к соцсетям. <strong>Это потому что нет системы.</strong> И без неё так будет всегда — сколько бы мотивации ни было.</p>
+  </div>
+
+  <div class="sec-title">Почему без системы не работает</div>
+
+  <div class="main-block">
+    <div class="block-num">01 — КОРЕНЬ ПРОБЛЕМЫ</div>
+    <h2>Каждый раз с нуля — это и есть выгорание</h2>
+    <p>Когда нет системы — каждый пост это отдельная задача. Придумать идею, решить что снимать, как снимать, что написать. Это огромная умственная нагрузка — даже если сам пост занимает 5 минут.</p>
+    <p>Именно поэтому мастера которые «пробуют вести соцсети» — бросают через месяц. Не потому что не хотят. Потому что это изматывает.</p>
+
+    <div class="insight">
+      <div class="insight-label">А вот как работает система</div>
+      <p>Ты открываешь план. Смотришь что сегодня по расписанию. Снимаешь конкретно это. Публикуешь.</p>
+      <p><strong>Никаких решений. Никакого стресса. Никакого пустого экрана.</strong> Просто исполнение того, что уже решено заранее. Именно так работают мастера у которых контент выходит стабильно — не потому что у них больше времени или вдохновения, а потому что есть система.</p>
+    </div>
+
+    <p>И самое важное — <strong>контент это не просто про красивые картинки.</strong> Это главный инструмент привлечения клиентов. Без него ты невидима. С ним — тебя находят, выбирают, записываются. Именно поэтому это нужно выстроить один раз — и сделать правильно.</p>
+  </div>
+
+  <div class="sec-title">Что меняется когда система есть</div>
+
+  <div class="main-block">
+    <div class="block-num">02 — ТРАНСФОРМАЦИЯ</div>
+    <h2>Два типа контента — и оба работают на тебя</h2>
+    <p>Система строится на двух типах контента. Они решают разные задачи — и вместе закрывают всю неделю без стресса.</p>
+
+    <div class="two-types">
+      <div class="type-card planned">
+        <div class="type-label p">ПЛАНОВЫЙ</div>
+        <h4>Снимаешь блоком заранее</h4>
+        <p>Раз в 1-2 недели выделяешь 2-3 часа и снимаешь всё сразу. Потом просто публикуешь по расписанию.</p>
+        <ul>
+          <li>Экспертные рилсы</li>
+          <li>Карусели с пользой</li>
+          <li>Ответы на вопросы</li>
+          <li>Обучающий контент</li>
+        </ul>
+      </div>
+      <div class="type-card situative">
+        <div class="type-label s">СИТУАТИВНЫЙ</div>
+        <h4>Снимаешь по ходу дня</h4>
+        <p>Не требует подготовки — просто замечаешь что происходит и фиксируешь прямо сейчас.</p>
+        <ul>
+          <li>Процесс работы</li>
+          <li>Результат до/после</li>
+          <li>История клиента</li>
+          <li>Момент из дня</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip"><strong>Плановый контент</strong> даёт экспертность и привлекает новых людей. <strong>Ситуативный</strong> — создаёт живость и доверие. Вместе они дают стабильный поток контента без ощущения что ты завод.</div>
+  </div>
+
+  <div class="sec-title">Как выстроить систему — четыре шага</div>
+
+  <div class="main-block">
+    <div class="block-num">03 — СИСТЕМА</div>
+    <h2>Один раз сделала — потом просто исполняешь</h2>
+
+    <div class="steps">
+      <div class="step-item">
+        <div class="step-circle">1</div>
+        <div class="step-body">
+          <h4>Пропиши рубрики</h4>
+          <p>Реши сколько раз в неделю выходит каждый тип контента. Например: <strong>2 рилса, 1 карусель, сторис каждый день, 2 поста с историей клиента.</strong> Рубрики не меняются — меняется только содержание.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">2</div>
+        <div class="step-body">
+          <h4>Составь темы на месяц вперёд</h4>
+          <p>Для планового контента — выписываешь темы заранее. Частые вопросы клиентов, экспертные темы, идеи для каруселей. <strong>Это занимает 30-40 минут один раз</strong> — и у тебя готов план на весь месяц. Больше не нужно каждый день думать что снимать.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">3</div>
+        <div class="step-body">
+          <h4>Снимай плановое блоком</h4>
+          <p>Раз в 1-2 недели выделяешь 2-3 часа и снимаешь всё плановое сразу — несколько рилсов, несколько каруселей. <strong>Пока есть настроение и всё готово.</strong> Потом просто берёшь из запаса и публикуешь по расписанию.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">4</div>
+        <div class="step-body">
+          <h4>Ситуативное снимаешь по плану</h4>
+          <p>У тебя есть список тем для ситуативного контента — процессы, кейсы, моменты. Смотришь в него по ходу дня и <strong>снимаешь когда происходит что-то подходящее.</strong> Не надо придумывать — надо только замечать.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-title">Форматы которые работают в бьюти</div>
+
+  <div class="main-block">
+    <div class="block-num">04 — ФОРМАТЫ</div>
+    <h2>Рилсы, карусели, сторис — каждый решает свою задачу</h2>
+
+    <div class="format-grid">
+      <div class="format-item">
+        <div class="format-n">1</div>
+        <div class="format-body">
+          <div class="format-tag">РИЛС</div>
+          <h4>Экспертный — отвечает на вопрос</h4>
+          <p>Берёшь частый вопрос клиента и отвечаешь коротко. Привлекает новых людей которые ищут ответ прямо сейчас. Самый мощный формат для роста аудитории.</p>
+        </div>
+      </div>
+      <div class="format-item">
+        <div class="format-n">2</div>
+        <div class="format-body">
+          <div class="format-tag">КАРУСЕЛЬ</div>
+          <h4>Польза в слайдах</h4>
+          <p>3-7 слайдов — как ухаживать, топ ошибок, сравнение, чек-лист. Карусели сохраняют и пересылают — лучший формат для органических охватов. Делается в Canva за 20-30 минут.</p>
+        </div>
+      </div>
+      <div class="format-item">
+        <div class="format-n">3</div>
+        <div class="format-body">
+          <div class="format-tag">РИЛС / ФОТО</div>
+          <h4>До и после с историей</h4>
+          <p>Не просто два фото — а история клиента. Что было, что хотела, что получилось. Создаёт доверие и желание записаться.</p>
+        </div>
+      </div>
+      <div class="format-item">
+        <div class="format-n">4</div>
+        <div class="format-body">
+          <div class="format-tag">СТОРИС</div>
+          <h4>Прогрев и лояльность</h4>
+          <p>Сторис не привлекают новых — но удерживают тех кто уже подписан. Процесс работы, закулисье, атмосфера. Снимается по ходу дня без подготовки.</p>
+        </div>
+      </div>
+      <div class="format-item">
+        <div class="format-n">5</div>
+        <div class="format-body">
+          <div class="format-tag">РИЛС / ПОСТ</div>
+          <h4>Твоё мнение</h4>
+          <p>Честная позиция о профессии, трендах, клиентах. Всегда вызывает реакцию и комментарии — а это органический охват без рекламы.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-title">Нейросети — когда нужна помощь с текстом</div>
+
+  <div class="ai-block">
+    <div class="block-num">05 — ИИ КАК ПОМОЩНИК</div>
+    <h2>Темы, подписи и план за секунды</h2>
+    <p>Когда составляешь план на месяц или нужно написать подпись к посту — нейросети экономят огромное количество времени. Описываешь задачу — получаешь варианты. Берёшь что нравится, переписываешь своими словами.</p>
+    <p><strong>Это не замена твоему голосу — это черновик</strong> который ты доводишь до конца. Результат звучит как ты, а не как робот.</p>
+
+    <div class="ai-example">
+      <div class="ai-label">ПРИМЕР — ТЕМЫ ДЛЯ ПЛАНА</div>
+      <div class="ai-prompt">«Я мастер по маникюру. Придумай 10 тем для экспертных рилсов — отвечают на вопросы клиентов, живые, без рекламы.»</div>
+      <div class="ai-result">10 готовых тем за 30 секунд — вставляешь в план и снимаешь по одной</div>
+    </div>
+
+    <div class="ai-example">
+      <div class="ai-label">ПРИМЕР — ПОДПИСЬ К ПОСТУ</div>
+      <div class="ai-prompt">«Напиши подпись к карусели про уход за маникюром дома. Тон живой, не официальный. В конце вопрос к читателю.»</div>
+      <div class="ai-result">Готовая подпись — нужно только подправить под себя</div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="cta-label">СЛЕДУЮЩИЙ ШАГ</div>
+    <h3>Систему можно выстроить самой.<br><span>Но это дольше.</span></h3>
+    <p>На разборе разберу твои соцсети, пойму твою нишу и аудиторию — и дам конкретную систему под тебя. Не общие советы, а точный план: какие рубрики вести, что снимать, как встроить это в рабочий день.</p>
+    <ul class="cta-list">
+      <li><div class="dot"></div><div>Разберу твои соцсети и скажу <strong>что именно тормозит рост</strong></div></li>
+      <li><div class="dot"></div><div>Дам конкретные рубрики и темы <strong>под твою нишу и аудиторию</strong></div></li>
+      <li><div class="dot"></div><div>Покажу как выстроить систему <strong>чтобы контент шёл без стресса</strong></div></li>
+      <li><div class="dot"></div><div>Объясню как использовать нейросети <strong>под твои конкретные задачи</strong></div></li>
+    </ul>
+    <a href="https://link.payform.ru/?paymentLinkId=72ba8f5f-b6cf-49f3-be95-af6289d86b2e" class="btn">РАЗБОР ЗА 590 ₽ → НАПИСАТЬ</a>
+  <p style="font-size:13px;color:#555;margin-top:16px;position:relative">После оплаты пришлите чек: <a href="https://t.me/matsukova_kristina" style="color:#FF3E7F;text-decoration:none">@matsukova_kristina</a></p>
+  </div>
+
+  <div style="max-width:660px;margin:0 auto;padding:0 20px">
+    <p style="font-size:12px;color:#333;line-height:1.7;margin-bottom:24px">* Instagram — продукт компании Meta, деятельность которой признана экстремистской и запрещена на территории Российской Федерации.</p>
+  </div>
+  <div class="footer">
+    Кристина · <strong>Маркетинг для бьюти-бизнеса</strong>
+  </div>
+
+</div>
+</body>
+</html>
